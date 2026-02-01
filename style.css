@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --width-card: 140px;
+    --height-card: 220px;
+
+    --width-slide: 200px;
+    --height-slide: 350px;
+
+    --scroll-animation: 550px;
+    --scroll-meme: 600px;
+
+    --border-radius-card: 15px;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000;
+    background-image: linear-gradient(#212121 2px, transparent 2px),
+                      linear-gradient(90deg, #212121 2px, transparent 2px);
+    background-size: 50px 50px;
+    font-family: 'Inter', sans-serif;
+    animation: moveGrid 0.8s linear infinite;
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    width: var(--width-card);
+    height: var(--height-card);
+    margin: auto;
+    overflow: hidden;
+    border-radius: var(--border-radius-card);
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    padding-top: 100px ;
+    overflow: hidden;
+    text-align: center;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
+/* === SLIDER CHÍNH === */
+.banner .slider{
+    position: absolute;
+    top: 30%;
+    
+    width: var(--width-slide); 
+    height: var(--height-slide);
+    
+    left: calc(50% - (var(--width-slide) / 2));
+    
+    display: flex;
+    transform-style: preserve-3d;
+    animation: autoRun 10s linear infinite;
+    background-image: url(./Cardcat.png);
+    background-size: cover;
+    border-radius: 15px;
+    z-index: 2;
+}
+
+/* === SLIDER MEME (ẨN) === */
+.banner .slider-meme{
+    position: absolute;
+    top: 10%;
+    
+    /* SỬA LẠI: Dùng biến và công thức căn giữa như trên */
+    width: var(--width-slide); 
+    height: var(--height-slide);
+    left: calc(50% - (var(--width-slide) / 2));
+    
+    display: none;
+    transform-style: preserve-3d;
+    animation: autoRun 1s linear infinite;
+    background-image: url(./uia-1.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+/* === ITEM LOGIC === */
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg ))
+        translateZ(var(--scroll-animation)); /* Đã dùng biến OK */
+}
+
+.banner .slider-meme .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg ))
+        translateZ(var(--scroll-meme));
+}
+
+
+.scroll{
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg);
+}
+
+.active {
+    transform: rotateX(20deg);
+}
+/* === ANIMATIONS === */
+@keyframes autoRun {
+    from {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+@keyframes moveGrid {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+.animation-90deg{
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* === UI ELEMENTS === */
+.hover-me{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Giữ chữ trên 1 dòng */
+}
+
+.hover-me:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(-50%) scale(1.1);
+}
+
+.content-hide{
+    position: absolute;
+    bottom: 350px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: rgba(73, 183, 223, 0.7);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 54px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 50%;
+    text-align: center;
+}
+
+.content{
+    position: absolute;
+    bottom: 350px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background-color: rgba(128, 128, 128, 0.7);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 54px;
+    z-index: -2;
+    width: 50%;
+    text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+    :root {
+        --width-card: 110px;
+        --height-card: 170px;
+        
+        --width-slide: 160px;
+        --height-slide: 280px;
+
+        --scroll-animation: 400px; 
+        --scroll-meme: 450px;
+
+        --border-radius-card: 12px;
+    }
+
+    .content { 
+        font-size: 40px; 
+        bottom: 300px; 
+    }
+    .content-hide { 
+        font-size: 36px; 
+        bottom: 350px; 
+    }
+}
+
+@media screen and (max-width: 780px) {
+    :root {
+        --width-card: 80px;
+        --height-card: 120px;
+
+        --width-slide: 120px;
+        --height-slide: 210px;
+
+        --scroll-animation: 200px; 
+        --scroll-meme: 220px;
+
+        --border-radius-card: 5px;
+    }
+
+    .banner {
+        transform: perspective(700px); 
+    }
+    
+    .banner .slider {
+        top: 30%; 
+    }
+
+    .banner .slider-meme {
+        top: 30%; 
+    }
+
+    .content {
+        font-size: 18px;
+        bottom: 150px; 
+    }
+    
+    .content-hide {
+        font-size: 18px;
+        bottom: 150px;
+    }
+
+    .hover-me {
+        bottom: 80px;
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    
+    body { 
+        background-size: 30px 30px; 
+    
+    }
+
+    @keyframes moveGrid {
+        0% { 
+            background-position: 0 0, 0 0; 
+        }
+        100% { 
+            background-position: 30px 30px; 
+        }
+    }
+}
