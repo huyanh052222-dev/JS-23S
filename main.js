@@ -37,6 +37,8 @@ function stopEffect() {
 onmouse.addEventListener('mouseenter', startEffect);
 onmouse.addEventListener('mouseleave', stopEffect);
 
-onmouse.addEventListener('touchstart', startEffect, { passive: false });
+onmouse.addEventListener('touchstart', startEffect, { 
+    passive: false 
+});
 onmouse.addEventListener('touchend', stopEffect);
 onmouse.addEventListener('touchcancel', stopEffect);
