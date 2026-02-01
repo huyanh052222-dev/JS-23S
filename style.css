@@ -11,6 +11,8 @@
     --width-slide: 200px;
     --height-slide: 350px;
 
+    --width-meme: 300px;
+
     --scroll-animation: 550px;
     --scroll-meme: 600px;
 
@@ -37,6 +39,7 @@ body{
     margin: auto;
     overflow: hidden;
     border-radius: var(--border-radius-card);
+    border: white 1px solid;
 }
 .card img{
     width: 100%;
@@ -71,22 +74,26 @@ body{
     background-size: cover;
     border-radius: 15px;
     z-index: 2;
+    border: white 1px solid ;
+    box-shadow: 0px 0px 20px rgba(247, 247, 247, 0.607);
 }
 
 .banner .slider-meme{
     position: absolute;
     top: 10%;
     
-    width: var(--width-slide); 
+    width: var(--width-meme); 
     height: var(--height-slide);
     left: calc(50% - (var(--width-slide) / 2));
     
     display: none;
     transform-style: preserve-3d;
     animation: autoRun 1s linear infinite;
-    background-image: url(./uia-1.jpg);
+    background-image: url(./uia-2.png);
     background-size: 100%;
     background-repeat: no-repeat;
+
+    
 }
 
 .banner .slider .item{
@@ -214,8 +221,9 @@ body{
         --width-card: 80px;
         --height-card: 120px;
 
-        --width-slide: 120px;
-        --height-slide: 210px;
+        --width-slide: 100px;
+        --height-slide: 180px;
+        --width-meme: 160px;
 
         --scroll-animation: 200px; 
         --scroll-meme: 220px;
