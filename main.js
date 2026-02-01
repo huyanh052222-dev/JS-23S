@@ -1,5 +1,5 @@
 const onmouse = document.querySelector('.hover-me');
-const scroll = document.querySelector('.scroll') || document.querySelector('.scope'); 
+const scroll = document.querySelector('.scroll'); 
 const real = document.querySelector('.slider');
 const fake = document.querySelector('.slider-meme');
 const contentHide = document.querySelector('.content-hide');

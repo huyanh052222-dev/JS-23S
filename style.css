@@ -55,7 +55,6 @@ body{
     transform: perspective(1000px);
 }
 
-/* === SLIDER CHÍNH === */
 .banner .slider{
     position: absolute;
     top: 30%;
@@ -74,12 +73,10 @@ body{
     z-index: 2;
 }
 
-/* === SLIDER MEME (ẨN) === */
 .banner .slider-meme{
     position: absolute;
     top: 10%;
     
-    /* SỬA LẠI: Dùng biến và công thức căn giữa như trên */
     width: var(--width-slide); 
     height: var(--height-slide);
     left: calc(50% - (var(--width-slide) / 2));
@@ -92,13 +89,12 @@ body{
     background-repeat: no-repeat;
 }
 
-/* === ITEM LOGIC === */
 .banner .slider .item{
     position: absolute;
     inset: 0 0 0 0;
     transform: 
         rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg ))
-        translateZ(var(--scroll-animation)); /* Đã dùng biến OK */
+        translateZ(var(--scroll-animation)); 
 }
 
 .banner .slider-meme .item{
@@ -118,7 +114,6 @@ body{
 .active {
     transform: rotateX(20deg);
 }
-/* === ANIMATIONS === */
 @keyframes autoRun {
     from {
         transform: perspective(1000px) rotateY(0deg);
@@ -134,10 +129,9 @@ body{
 }
 
 .animation-90deg{
-    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 3.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* === UI ELEMENTS === */
 .hover-me{
     position: absolute;
     bottom: 50px;
@@ -151,7 +145,7 @@ body{
     font-size: 18px;
     cursor: pointer;
     transition: all 0.3s ease;
-    white-space: nowrap; /* Giữ chữ trên 1 dòng */
+    white-space: nowrap; 
 }
 
 .hover-me:hover{
