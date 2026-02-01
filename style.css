@@ -5,15 +5,15 @@
 }
 
 :root{
-    --width-card: 140px;
-    --height-card: 220px;
+    --width-card: 100px;
+    --height-card:180px;
 
     --width-slide: 200px;
     --height-slide: 350px;
 
     --width-meme: 300px;
 
-    --scroll-animation: 550px;
+    --scroll-animation: 500px;
     --scroll-meme: 600px;
 
     --border-radius-card: 15px;
@@ -162,14 +162,14 @@ body{
 
 .content-hide{
     position: absolute;
-    bottom: 350px;
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
     background-color: rgba(73, 183, 223, 0.7);
     border-radius: 10px;
     color: #fff;
-    font-size: 54px;
+    font-size: 36px;
     opacity: 0;
     transition: opacity 0.3s ease;
     width: 50%;
@@ -178,7 +178,7 @@ body{
 
 .content{
     position: absolute;
-    bottom: 350px;
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
     box-sizing: border-box;
@@ -186,7 +186,7 @@ body{
     background-color: rgba(128, 128, 128, 0.7);
     border-radius: 10px;
     color: #ffffff;
-    font-size: 54px;
+    font-size: 36px;
     z-index: -2;
     width: 50%;
     text-align: center;
